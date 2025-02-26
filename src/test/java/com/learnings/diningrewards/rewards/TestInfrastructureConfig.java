@@ -1,14 +1,11 @@
 package com.learnings.diningrewards.rewards;
 
-import com.learnings.diningrewards.config.RewardsConfig;
 import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
 @Configuration
-@Import(RewardsConfig.class)
 public class TestInfrastructureConfig {
 
   /**

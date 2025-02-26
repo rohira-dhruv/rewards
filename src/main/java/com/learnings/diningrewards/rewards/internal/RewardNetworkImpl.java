@@ -10,6 +10,8 @@ import com.learnings.diningrewards.rewards.internal.account.AccountRepository;
 import com.learnings.diningrewards.rewards.internal.restaurant.Restaurant;
 import com.learnings.diningrewards.rewards.internal.restaurant.RestaurantRepository;
 import com.learnings.diningrewards.rewards.internal.reward.RewardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Rewards an Account for Dining at a Restaurant.
@@ -17,6 +19,7 @@ import com.learnings.diningrewards.rewards.internal.reward.RewardRepository;
  * the domain-layer to carry out the process of rewarding benefits to accounts for dining.
  * Said in other words, this class implements the "reward account for dining" use case.
  */
+@Service("rewardNetwork")
 public class RewardNetworkImpl implements RewardNetwork {
 
   private final AccountRepository accountRepository;
@@ -31,6 +34,7 @@ public class RewardNetworkImpl implements RewardNetwork {
    * @param restaurantRepository the repository for loading restaurants that determine how much to reward
    * @param rewardRepository the repository for recording a record of successful reward transactions
    */
+  @Autowired
   public RewardNetworkImpl(AccountRepository accountRepository, RestaurantRepository restaurantRepository,
                            RewardRepository rewardRepository) {
     this.accountRepository = accountRepository;

@@ -9,11 +9,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.learnings.diningrewards.util.JdbcUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Repository;
 
 /**
  * Loads accounts from a data source using the JDBC API.
  */
+@Repository("accountRepository")
 public class JdbcAccountRepository implements AccountRepository {
 
   private DataSource dataSource;
@@ -22,6 +25,7 @@ public class JdbcAccountRepository implements AccountRepository {
    * Sets the data source this repository will use to load accounts.
    * @param dataSource the data source
    */
+  @Autowired
   public void setDataSource(DataSource dataSource) {
     this.dataSource = dataSource;
   }
